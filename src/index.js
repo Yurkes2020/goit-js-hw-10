@@ -56,7 +56,7 @@ function renderCountryInfo(item) {
         <h1>${name.official}</h1>
         <img class="image" src="${flags.svg}" alt="${
         name.official
-      }" width="100" > 
+      }" width="150" > 
       <p> <span>Capital:</span>  ${capital}</p>
       <p> <span>Population:</span> ${population}</p>
       <p> <span>Language:</span> ${Object.values(languages)} </p>
