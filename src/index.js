@@ -10,7 +10,7 @@ const listRef = document.querySelector('.country-list');
 const infoRef = document.querySelector('.country-info');
 console.log(inputRef);
 
-inputRef.addEventListener('input', debounce(onSearch), DEBOUNCE_DELAY);
+inputRef.addEventListener('input', debounce(onSearch, DEBOUNCE_DELAY));
 
 function onSearch(event) {
   event.preventDefault();
