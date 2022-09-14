@@ -19,22 +19,24 @@ function onSearch(event) {
   if (!countrySearch) {
     return;
   }
-  fetchCountries(countrySearch)
-    .then(data => {
-      if (data.length > 10) {
-        Notiflix.Notify.info(
-          'Too many matches found. Please enter a more specific name.'
-        );
-        return;
-      } else if (data.length === 1) {
-        renderCountryInfo(data);
-      } else {
-        renderCountryList(data);
-      }
-    })
-    .catch(error => {
-      Notiflix.Notify.failure('Oops, there is no country with that name');
-    });
+  fetchCountries(countrySearch).then(showCountry).catch(errorSearch);
+}
+
+function showCountry(data) {
+  if (data.length > 10) {
+    Notiflix.Notify.info(
+      'Too many matches found. Please enter a more specific name.'
+    );
+    return;
+  } else if (data.length === 1) {
+    renderCountryInfo(data);
+  } else {
+    renderCountryList(data);
+  }
+}
+
+function errorSearch(error) {
+  Notiflix.Notify.failure('Oops, there is no country with that name');
 }
 
 function renderCountryList(item) {
